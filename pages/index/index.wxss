@@ -45,11 +45,11 @@
 
 .search-clear {
   position: absolute;
-  right: 110rpx;
+  right: 95rpx;
   top: 0px;
   z-index: 100;
   height: 100%;
-  padding: 0 3px;
+  padding: 0 10px;
   vertical-align: middle;
   display: -webkit-flex;
   display: flex;
