@@ -1,0 +1,5 @@
+<view class='tips-toast tips-mask' hidden="{{!isShow}}">
+  <view class='tips-content'>
+    <text class='tips-text' style='margin-top:{{locationTop}}px' >{{ tipsText }}</text>
+  </view>
+</view>

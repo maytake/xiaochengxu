@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/whoisResult/index",
+    "pages/index/index"
+     
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#e50012",
+    "navigationBarTitleText": "域名whois",
+    "navigationBarTextStyle": "#fff"
+  }
+}
