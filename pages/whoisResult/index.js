@@ -14,7 +14,7 @@ Page({
     StorageFlag: false,         //显示搜索记录标志位
     hiddenClear: true,          //搜索的打叉
     TipText: "恭喜您！提交成功",
-    defaultR:true,              //搜索的默认结果
+    defaultR: true,              //搜索的默认结果
 
     regInfo: [],
     allInfo: [],
@@ -26,12 +26,13 @@ Page({
     this.tips = this.selectComponent("#tips")
     if (domain) {
       this.hideDefault()
+      this.requireData()
     }
   },
-  hideDefault(){//隐藏默认页面
-      this.setData({
-        defaultR: false
-      })
+  hideDefault() {//隐藏默认页面
+    this.setData({
+      defaultR: false
+    })
   },
   tipsFn(txt, times) {
     this.tips.showtips();
@@ -101,38 +102,42 @@ Page({
   tapSercher() {
     this.requireHttp()
   },
-  
-  showArrow(e){
+
+  showArrow(e) {
     this.setData({
       dropdown: !this.data.dropdown
     })
   },
-  query(){
-
+  query() {
+    this.requireHttp()
   },
-  requireHttp(){
-    let _this = this,
-        vl = util.trim(this.data.inputValue)
+  requireHttp() {
+    let _this = this, timer = null,
+      vl = util.trim(this.data.inputValue)
 
-    
+
     if (!this.regE(vl)) {
-      this.hideDefault()//隐藏默认页面 
-      wx.hideLoading()
-      let regInfo = getData.successData.data.regInfo,
-        allInfo = getData.successData.data.allInfo.split('\n'),
-        successR = getData.successData.success
-      this.setData({
-        dmSuccess: successR,
-        regInfo: regInfo,
-        allInfo: allInfo
+      //模拟请求
+      wx.showLoading({
+        title: '加载中',
       })
-
+      clearTimeout(timer)
+      setTimeout(function () {
+        _this.requireData();
+      }, 500)
     }
-
-
+  },
+  requireData() {
+    this.hideDefault()//隐藏默认页面 
+    wx.hideLoading()
+    let regInfo = getData.successData.data.regInfo,
+      allInfo = getData.successData.data.allInfo.split('\n'),
+      successR = getData.successData.success
+    this.setData({
+      dmSuccess: successR,
+      regInfo: regInfo,
+      allInfo: allInfo
+    })
   }
 })
 
-    // wx.showLoading({
-    //   title: '加载中',
-    // })

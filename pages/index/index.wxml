@@ -7,45 +7,37 @@
   </view>
 
   <!-- search-bar -->
-    <view class="search-section">
+  <view class="search-section">
 
-      <view class="search-input-wrapper ">
-        <input  
-        class="search-input" 
-        bindinput="domainInput" 
-        bindconfirm="query" 
-        bindfocus="bindBarcodeFocus" 
-        bindblur="bindBarcodeBlur" 
-        placeholder="请输入要查询的域名，如abc.com" 
-        value="{{inputValue}}" 
-        confirm-type="search" />
+    <view class="search-input-wrapper ">
+      <input class="search-input" bindinput="domainInput" bindconfirm="query" bindfocus="bindBarcodeFocus" bindblur="bindBarcodeBlur" placeholder="请输入要查询的域名，如abc.com" value="{{inputValue}}" confirm-type="search" />
 
-        <view class="search-clear" hidden="{{hiddenClear}}" bindtap="clearInput">
-          <image class="search-clear-icon" src="/static/images/clear.png" ></image>
-        </view>
-      
-        <view class="search-btn" bindtap="tapSercher">
-            <image class="search-btn-icon" src="/static/images/search.png"></image>
-        </view>        
+      <view class="search-clear" hidden="{{hiddenClear}}" bindtap="clearInput">
+        <image class="search-clear-icon" src="/static/images/clear.png"></image>
       </view>
 
+      <view class="search-btn" bindtap="tapSercher">
+        <image class="search-btn-icon" src="/static/images/search.png"></image>
+      </view>
     </view>
+
+  </view>
 
   <!-- description -->
   <view class="search-description">
     <text class="search-description-text">域名所有者、到期日、所属注册商等信息想查就查</text>
   </view>
 
-<!-- query hint -->
+  <!-- query hint -->
   <view class="search-hint">
-     <image class="search-hint-icon" src="/static/images/seachInfo.png" ></image>
+    <image class="search-hint-icon" src="/static/images/seachInfo.png"></image>
     <text class="search-hint-text">查询域名whois信息</text>
   </view>
-  
+
 
 </view>
-
-   <tips id='tips' 
-          locationTop='-160' 
-          tipsText='{{TipText}}'> 
-  </tips>
+<view class="footer whois-footer">
+  <view class="footer-inner">CopyRight 2018 whois All Rights Reserved.</view>
+</view>
+<tips id='tips' locationTop='-160' tipsText='{{TipText}}'>
+</tips>

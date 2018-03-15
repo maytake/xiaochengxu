@@ -8,3 +8,21 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+.footer {
+    text-align: center;
+    color: #333;
+    padding: 15px 0;
+    background: #f5f5f5;
+    line-height: 25px;
+    width: 100%;
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+}
+.footer .footer-inner {
+    font-size: 14px;
+    color: #666;
+    line-height: 1;
+}

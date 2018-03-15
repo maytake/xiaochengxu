@@ -36,7 +36,7 @@ Page({
       inputValue: inputV
     })
     this.showCloseIcon(inputLength)
- 
+
   },
   regE: function (valX) {
     var reg = /^[\w\d-\.\n\u4e00-\u9fa5]*$/,
@@ -62,7 +62,7 @@ Page({
     };
   },
   showCloseIcon(inputLength) {
-    let timer = null,_this=this
+    let timer = null, _this = this
     // 清空input
     clearTimeout(timer)
     timer = setTimeout(function () {
@@ -85,22 +85,17 @@ Page({
     })
   },
   tapSercher() {
+    this.requireHttp()
+  },
+  query() {
+    this.requireHttp()
+  },
+  requireHttp() {
     let vl = util.trim(this.data.inputValue)
-    // wx.showLoading({
-    //   title: '加载中',
-    // })
     if (!this.regE(vl)) {
-      wx.hideLoading()
       wx.navigateTo({
         url: "../whoisResult/index?domain=" + vl
       })
     }
-
-  },
-  query() {
-    let vl = util.trim(this.data.inputValue)
-    wx.navigateTo({
-      url: "../whoisResult/index?domain=" + vl
-    })
   }
 })
