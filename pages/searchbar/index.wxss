@@ -1,0 +1,43 @@
+page{
+  background: #fff;
+}
+.searchbar-result{
+    margin-top: 0;
+    font-size: 14px;
+}
+.searchbar-result:before{
+    display: none;
+}
+.weui-cell{
+    padding: 12px 15px 12px 35px;
+}
+
+.searchbar-history{
+  padding: 0 20px;
+}
+
+
+.s-history {
+
+  margin-bottom: 20px;
+}
+.s-history-tit{
+  float: left;
+  font-size: 16px;
+  color: #333;
+
+}
+.s-history-clear{
+  float: right;
+  color: #ff0000;
+  font-size: 14px;
+}
+.weui-item{
+  float: left;
+  border-radius: 3px;
+  background: #f7f7f7;
+  margin:0 10px 12px 0;
+  padding: 3px 5px;
+  color: #333;
+  font-size: 14px;
+}

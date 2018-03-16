@@ -1,9 +1,12 @@
 {
   "pages": [
+      "pages/searchbar/index",
     "pages/index/index",
+  
+    "pages/search/index",
+
     "pages/whoisResult/index"
-   
-     
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
