@@ -10,7 +10,7 @@ Page({
    */
   data: {
     sercherStorage: [],
-    inputValue: "",             //搜索框输入的值  
+    inputValue: "请输入要查询的域名，如abc.com",             //搜索框输入的值  
     StorageFlag: false,         //显示搜索记录标志位
     hiddenClear: true,          //搜索的打叉
     TipText: "恭喜您！提交成功",
@@ -24,10 +24,10 @@ Page({
   onLoad(options) {
     let domain = util.trim(options.domain) //传入参数
     this.tips = this.selectComponent("#tips")
-    this.setData({
-      inputValue: domain
-    })
     if (domain) {
+      this.setData({
+        inputValue: domain
+      })
       this.hideDefault()
       this.requireData()
     }
@@ -50,7 +50,7 @@ Page({
 
   tapSercher() {
     wx.redirectTo({
-      url: '../searchbar/index'
+      url: '../searchbar/index?path=' + this.data.whoispath + '&searchName=' + this.data.inputValue
     })
   },
 

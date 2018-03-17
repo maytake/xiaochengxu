@@ -5,9 +5,15 @@ Page({
     inputVal: "",
     selectHide: false,
     getSearch: [],
-    modalHidden: true
+    modalHidden: true,
+    back:''
   },
-  onShow: function () {
+  onLoad: function(options) {
+      this.setData({
+        back: options.path
+      })
+    },
+  onShow: function() {
     this.tips = this.selectComponent("#tips")
     var getSearch = wx.getStorageSync('searchData');
     this.setData({
@@ -28,26 +34,14 @@ Page({
       inputVal: "",
       inputShowed: false
     });
-    wx.navigateBack(); 
     this.navigateBack();
   },
   //返回上一级
   navigateBack: function () {
-    var self = this;
-    var pages = getCurrentPages();
-    if (pages.length == 1) {
-      if (pages.data.whoispath) {
-        wx.redirectTo({
-          url: pages.data.whoispath
-        });
-      } else {
-        wx.switchTab({
-          url: "../index/index"
-        });
-      }
-    } else {
-      wx.navigateBack({ changed: true });
-    }
+    let gob = this.data.back
+      wx.redirectTo({
+        url: '../index/index'
+      });
   },  
 
 

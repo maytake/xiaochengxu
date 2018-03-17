@@ -4,7 +4,7 @@
   <view class="s-section">
 
     <view class="s-input-wrapper " bindtap="tapSercher">
-      <input class="s-input"   placeholder="请输入要查询的域名，如abc.com" value="{{inputValue}}" confirm-type="search" />
+      <view class="s-input"  style="color:#999;font-size:14px;" >{{inputValue}}</view>
 
       <view class="s-clear" hidden="{{hiddenClear}}" bindtap="clearInput">
         <image class="s-clear-icon" src="/static/images/clear.png"></image>

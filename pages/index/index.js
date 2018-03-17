@@ -8,7 +8,7 @@ const app = getApp()
 
 Page({
   data: {
-  
+    whoispath:'../searchbar/index'
   },
 
 
