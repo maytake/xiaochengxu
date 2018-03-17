@@ -1,3 +1,4 @@
+let util = require('../../utils/util.js')
 Page({
   data: {
     inputShowed: false,
@@ -73,7 +74,7 @@ Page({
   //搜索事件
   query: function () {
     let data,
-      vl = this.data.inputVal;
+      vl = util.trim(this.data.inputVal);
     let localStorageValue = [];
     if (vl != '') {
       //调用API从本地缓存中获取数据
