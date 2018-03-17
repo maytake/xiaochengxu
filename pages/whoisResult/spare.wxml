@@ -3,14 +3,14 @@
   <!-- search-bar -->
   <view class="s-section">
 
-    <view class="s-input-wrapper " bindtap="tapSercher">
-      <input class="s-input"   placeholder="请输入要查询的域名，如abc.com" value="{{inputValue}}" confirm-type="search" />
+    <view class="s-input-wrapper ">
+      <input class="s-input" bindinput="domainInput" bindconfirm="query" bindfocus="bindBarcodeFocus" bindblur="bindBarcodeBlur" placeholder="请输入要查询的域名，如abc.com" value="{{inputValue}}" confirm-type="search" />
 
       <view class="s-clear" hidden="{{hiddenClear}}" bindtap="clearInput">
         <image class="s-clear-icon" src="/static/images/clear.png"></image>
       </view>
 
-      <view class="s-btn" >
+      <view class="s-btn" bindtap="tapSercher">
         <image class="s-btn-icon" src="/static/images/searchicon.png"></image>
       </view>
     </view>

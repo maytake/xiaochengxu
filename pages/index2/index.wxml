@@ -9,11 +9,14 @@
   <!-- search-bar -->
   <view class="search-section">
 
-    <view class="search-input-wrapper " bindtap="tapSercher">
-      <view class="search-input" style="color:#999;font-size:14px;" >请输入要查询的域名，如abc.com"</view>
+    <view class="search-input-wrapper ">
+      <input class="search-input" bindinput="domainInput" bindconfirm="query" bindfocus="bindBarcodeFocus" bindblur="bindBarcodeBlur" placeholder="请输入要查询的域名，如abc.com" value="{{inputValue}}" confirm-type="search" />
 
+      <view class="search-clear" hidden="{{hiddenClear}}" bindtap="clearInput">
+        <image class="search-clear-icon" src="/static/images/clear.png"></image>
+      </view>
 
-      <view class="search-btn">
+      <view class="search-btn" bindtap="tapSercher">
         <image class="search-btn-icon" src="/static/images/search.png"></image>
       </view>
     </view>
