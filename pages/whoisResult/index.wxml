@@ -1,31 +1,67 @@
-<view class="wrap">
+<view class="container">
 
   <!-- search-bar -->
-  <view class="s-section">
-
-    <view class="s-input-wrapper " bindtap="tapSercher">
-      <view class="s-input"  style="color:#999;font-size:14px;" >{{inputValue}}</view>
-
-      <view class="s-clear" hidden="{{hiddenClear}}" bindtap="clearInput">
-        <image class="s-clear-icon" src="/static/images/clear.png"></image>
+  <view class="weui-search-wrap">
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text" class="weui-search-bar__input" placeholder="请输入要查询的域名，如abc.com" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" confirm-type="search" bindconfirm="query" />
+          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+          <icon class="weui-icon-search" type="search" size="14"></icon>
+          <view class="weui-search-bar__text">搜索</view>
+        </label>
       </view>
-
-      <view class="s-btn" >
-        <image class="s-btn-icon" src="/static/images/searchicon.png"></image>
-      </view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
     </view>
 
   </view>
+  <!-- search-bar-end-->
+
+
+
 
   <!-- search-result -->
   <view class="search-result">
     <!-- search-default -->
     <block wx:if="{{defaultR}}">
-      <view class="search-default">
-        <image class="search-hint-icon" src="/static/images/seachInfo.png"></image>
-        <text class="search-hint-text">查询域名whois信息</text>
-      </view>
+      <!-- searchbar-history -->
+      <block wx:if="{{getSearch.length>0}}">
+        <view class=" searchbar-history" wx:if="{{!inputVal.length>0 && getSearch.length>0}}">
+          <view class="s-history clearfix">
+            <text class="s-history-tit">
+        历史搜索  
+      </text>
+            <text class="s-history-clear" bindtap="clearSearchStorage">
+          清除
+      </text>
+          </view>
+          <view class="s-storage clearfix">
+            <block wx:for="{{getSearch}}" wx:for-index="idx" wx:for-item="itemName" wx:key="idx">
+              <view class="weui-item" wx:if="{{itemName != ''}}" bindtap="searchHistory" data-text="{{itemName}}">
+                <view>{{itemName}}</view>
+              </view>
+            </block>
+
+          </view>
+        </view>
+      </block>
+      <!-- search-default -->
+      <block wx:else>
+        <view class="search-default">
+          <image class="search-hint-icon" src="/static/images/seachInfo.png"></image>
+          <text class="search-hint-text">查询域名whois信息</text>
+        </view>
+      </block>
+      <!-- search-default -->
     </block>
+
+    <!-- search-default-end -->
+
     <block wx:else>
       <!-- search-result -->
       <block wx:if="{{dmSuccess}}">
@@ -61,11 +97,12 @@
             <view class="search-item">
               <view class="search-label">DNS服务器</view>
               <view class="search-name">
-                  <view class="seacch-name-txt" wx:for="{{regInfo.DNSServer}}" wx:key="*this" wx:for-item="DNSServer">{{DNSServer}}</view>
+                <view class="seacch-name-txt" wx:for="{{regInfo.DNSServer}}" wx:key="*this" wx:for-item="DNSServer">{{DNSServer}}</view>
               </view>
             </view>
 
           </view>
+          <view class="space15"></view>
           <!-- 第二部分 -->
           <view class="search-box-b">
             <view class="search-pickup" bindtap="showArrow" id="IdShowArrow">
@@ -73,7 +110,7 @@
               <image class="arrow {{ dropdown ? 'active':''}} " src="/static/images/icon_down.png"></image>
             </view>
             <view class="search-list-detail {{ dropdown ? 'heightAuto':''}}">
-                 <view class="seacch-name-txt" wx:for="{{allInfo}}" wx:key="*this" wx:for-item="list">{{list}}</view>
+              <view class="seacch-name-txt" wx:for="{{allInfo}}" wx:key="*this" wx:for-item="list">{{list}}</view>
             </view>
           </view>
         </view>
@@ -92,10 +129,15 @@
     </block>
 
   </view>
+  <!-- search-result -->
+  <view class="footer whois-footer">
+    <view class="footer-inner">CopyRight 2018 whois All Rights Reserved.</view>
+  </view>
+</view>
 
-</view>
-<view class="footer whois-footer">
-  <view class="footer-inner">CopyRight 2018 whois All Rights Reserved.</view>
-</view>
+<modal class="modal" hidden="{{modalHidden}}" bindconfirm="modalChangeConfirm" bindcancel="modalChangeCancel">
+  <view class="text-center"> 确定要删除历史记录么？ </view>
+</modal>
+
 <tips id='tips' locationTop='-160' tipsText='{{TipText}}'>
 </tips>

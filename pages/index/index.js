@@ -8,14 +8,12 @@ const app = getApp()
 
 Page({
   data: {
-    whoispath:'../searchbar/index'
+    whoispath:'../whoisResult/index'
   },
-
-
 
   tapSercher() {
     wx.navigateTo({
-      url: "../searchbar/index"
+      url: "../whoisResult/index"
     })
   },
 

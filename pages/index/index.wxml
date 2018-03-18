@@ -1,3 +1,5 @@
+<view class="container">
+
 <view class="search-wrapper">
 
   <!-- logo -->
@@ -35,6 +37,7 @@
 </view>
 <view class="footer whois-footer">
   <view class="footer-inner">CopyRight 2018 whois All Rights Reserved.</view>
+</view>
 </view>
 <tips id='tips' locationTop='-160' tipsText='{{TipText}}'>
 </tips>

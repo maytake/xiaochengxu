@@ -18,7 +18,7 @@ Page({
     var getSearch = wx.getStorageSync('searchData');
     this.setData({
       getSearch: getSearch,
-      inputValue: ''
+      inputVal: ''
     })
   },
 

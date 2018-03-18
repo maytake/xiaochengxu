@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/index2/index",
     "pages/whoisResult/index",
+    "pages/index2/index",
     "pages/whoisResult2/index",
     "pages/searchbar/index"
   ],

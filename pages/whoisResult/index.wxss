@@ -1,7 +1,79 @@
 page {
-  background: #f5f5f5;
+  background: #fff;
+}
+/* 搜索栏开始 */
+.searchbar-result{
+    margin-top: 0;
+    font-size: 14px;
+     position: relative;
+  overflow: hidden;
+   
+}
+.searchbar-result:before{
+    display: none;
+}
+.weui-cell{
+    padding: 12px 15px 12px 35px;
 }
 
+.searchbar-history{
+  padding: 0 20px;
+}
+
+
+.s-history {
+  line-height: 30px;
+  margin-bottom: 10px;
+}
+.s-history text{
+  margin-top: -20px;
+}
+.s-history-tit{
+  float: left;
+  font-size: 16px;
+  color: #333;
+
+}
+.s-history-clear{
+  float: right;
+  color: #ff0000;
+  font-size: 14px;
+}
+.weui-item{
+  float: left;
+  border-radius: 3px;
+  background: #f7f7f7;
+  margin:0 10px 12px 0;
+  padding: 3px 8px;
+  color: #333;
+  font-size: 14px;
+}
+.weui-search-wrap{
+  height: 60px;
+  width: 100%;
+}
+.weui-search-bar{
+  padding:10px 10px;
+  background: #f5f5f5;
+  width:100%;
+
+}
+
+.weui-search-bar__input {
+  line-height: 35px;
+  height: 35px;
+}
+.weui-search-bar__label{
+  line-height: 35px;
+}
+.weui-search-bar__cancel-btn{
+  line-height: 35px;
+}
+.weui-icon-search_in-box{top:10px; }
+.weui-icon-clear{
+  padding: 10px 8px;
+}
+/* end */
 .s-section {
   background: #fff;
   position: relative;
@@ -51,11 +123,10 @@ page {
   height: 16px;
 }
 
-.search-result {
-  position: relative;
-  overflow: hidden;
-}
 
+.search-result{
+  flex: 1;
+}
 .search-default {
   margin: 120rpx 0 50px;
   text-align: center;
@@ -78,7 +149,7 @@ page {
 
 .search-box {
   background: #fff;
-  border-top: 1px solid #e4e4e4;
+  
 }
 
 .search-box .search-item {
@@ -105,16 +176,15 @@ page {
   word-wrap: break-word;
 }
 
-.search-box .search-name .seacch-name-txt {
+ .seacch-name-txt {
   word-wrap: break-word;
   word-break: break-word;
 }
 
 .search-box-b {
-  margin-top: 20px;
+  border-top: 1px solid #e4e4e4;
   background: #fff;
-  width: 100%;
-  padding: 10px 15px 65px;
+  padding: 10px 15px 35px;
   font-size: 12px;
   color: #333;
 }
@@ -141,7 +211,7 @@ page {
 
 .search-box-b .search-list-detail {
   overflow: hidden;
-  height: 160px;
+  height: 170px;
 }
 
 .search-box-b  .heightAuto {
@@ -183,4 +253,8 @@ page {
   color: #e50012;
   border: 1px solid #e50012;
   border-radius: 5px;
+}
+.space15{
+  width: 100%; height: 15px;
+  background: #f5f5f5;
 }

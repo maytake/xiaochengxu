@@ -1,5 +1,8 @@
 /**index.wxss**/
-
+.search-wrapper{
+  flex: 1;
+  -webkit-box-flex: 1;
+}
 .search-log {
   margin: 110rpx 0 70rpx;
   text-align: center;
